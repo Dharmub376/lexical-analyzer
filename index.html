@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexical Analysis</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <!-- Add the audio element for sound effect -->
+  <audio id="click-sound" src="click-sound.mp3" preload="auto"></audio>
+
+  <div class="container">
+    <h2>Lexical Analysis</h2>
+    <div class="input-box">
+      <label for="equation">Enter Equation:</label>
+      <input type="text" id="equation" placeholder="Type equation here">
+    </div>
+    <div class="buttons">
+      <div class="row">
+        <button onclick="playSound(); addToInput('+')">+</button>
+        <button onclick="playSound(); addToInput('-')">-</button>
+        <button onclick="playSound(); addToInput('*')">*</button>
+        <button onclick="playSound(); addToInput('/')">/</button>
+        <button onclick="playSound(); addToInput('=')">=</button>
+        <button onclick="playSound(); addToInput('%')">%</button>
+      </div>
+      <div class="row">
+        <button onclick="playSound(); addToInput('x')">x</button>
+        <button onclick="playSound(); addToInput('y')">y</button>
+        <button onclick="playSound(); addToInput('1')">1</button>
+        <button onclick="playSound(); addToInput('2')">2</button>
+        <button onclick="playSound(); addToInput('(')">(</button>
+        <button onclick="playSound(); addToInput(')')">)</button>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="okay" onclick="playSound(); analyzeEquation()">Submit</button>
+      <button class="clear" onclick="playSound(); clearInput()">Clear</button>
+      <!-- Random Expression Button -->
+      <button class="random" onclick="playSound(); generateRandomExpression()">Random</button>
+    </div>
+    <div class="result-box" id="result"></div>
+  </div>
+
+  <div class="theory-container">
+    <h2>Lexical Analysis Theory</h2>
+    <p><strong>Lexical analysis</strong> is the process of converting a sequence of characters (such as source code) into a sequence of tokens. Each token is a string with an assigned meaning, which can be identified by the lexical analyzer (lexer). The primary role of a lexical analyzer is to split the input into manageable chunks, such as operators, keywords, variables, and literals.</p>
+    <p><strong>Key Concepts in Lexical Analysis:</strong></p>
+    <ul>
+      <li><strong>Token:</strong> A sequence of characters that collectively represent a basic unit of meaning (e.g., an identifier, a number, or an operator).</li>
+      <li><strong>Lexeme:</strong> The actual sequence of characters that matches a token pattern.</li>
+      <li><strong>Regular Expressions:</strong> Used to define patterns that tokens must match.</li>
+      <li><strong>Finite Automata:</strong> A mathematical model used to implement token recognition algorithms.</li>
+    </ul>
+    <p>Lexical analysis is often the first phase in a compiler or interpreter pipeline. It is followed by syntax analysis, which checks the structure of the tokenized input against the grammar of the language.</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <a href="https://dharmagat.com.np/">
+      <p>Made with ❤️ by Dharmu</p>
+    </a>
+  </footer>
+
+  <script src="main.js"></script>
+
+  <script>
+    // Function to play sound when any button is clicked
+    function playSound() {
+      var sound = document.getElementById("click-sound");
+      sound.play();
+    }
+
+    // Function to generate a random expression and insert it into the input field
+    function generateRandomExpression() {
+      const randomExpressions = [
+        '1+2',
+        'x*(y+1)',
+        '5/3',
+        '(x+y)*(2-1)',
+        'x*y+2',
+        'y-(x+2)',
+        '3*(x+y)/2',
+        'x+5*y%3',
+        'y/(x+1)',
+        '1+(x*y)-2'
+      ];
+
+      const randomIndex = Math.floor(Math.random() * randomExpressions.length);
+      const randomExpression = randomExpressions[randomIndex];
+      document.getElementById('equation').value = randomExpression;
+    }
+  </script>
+</body>
+
+</html>
