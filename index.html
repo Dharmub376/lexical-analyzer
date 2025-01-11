@@ -6,10 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lexical Analysis</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#000000">
+  <meta name="description" content="A web app for lexical analysis with a mathematical equation input.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="author" content="Dharmu">
+  <meta name="description" content="Lexical Analysis web app for evaluating mathematical equations with support for operators, variables, and expressions.">
+  <meta name="keywords" content="lexical analysis, mathematical equations, web app, equation input, lexical analysis theory, programming, tokens, source code analysis">
+  <link rel="icon" href="/favicon.ico">
 </head>
 
 <body>
-  <!-- Add the audio element for sound effect -->
   <audio id="click-sound" src="click-sound.mp3" preload="auto"></audio>
 
   <div class="container">
@@ -39,7 +48,6 @@
     <div class="actions">
       <button class="okay" onclick="playSound(); analyzeEquation()">Submit</button>
       <button class="clear" onclick="playSound(); clearInput()">Clear</button>
-      <!-- Random Expression Button -->
       <button class="random" onclick="playSound(); generateRandomExpression()">Random</button>
     </div>
     <div class="result-box" id="result"></div>
@@ -68,13 +76,11 @@
   <script src="main.js"></script>
 
   <script>
-    // Function to play sound when any button is clicked
     function playSound() {
       var sound = document.getElementById("click-sound");
       sound.play();
     }
 
-    // Function to generate a random expression and insert it into the input field
     function generateRandomExpression() {
       const randomExpressions = [
         '1+2',
